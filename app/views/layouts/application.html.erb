@@ -12,38 +12,55 @@
 
   <body>
     <header>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to "Home", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "Users", new_user_session_path %>
-        </li>
-        <li>
-          <%= link_to "Books", new_user_session_path %>
-        </li>
-        <li>
-          <!-- 設定済 -->
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-        </li>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "Home", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "About", new_user_session_path %>
-        </li>
-        <li>
-          <!-- 設定済 -->
-          <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-        <li>
-          <!-- 設定済 -->
-          <%= link_to "Log in", new_user_session_path %>
-        </li>
-      <% end %>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <%= link_to "Bookers", root_path %>
+        <div class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to "Home", root_path %>
+            </li>
+            <li>
+              <%= link_to "Users", user_session_path %>
+            </li>
+            <li>
+               <%= link_to "Books", books_path %>
+             </li>
+            <li>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Home", root_path %>
+            </li>
+            <li>
+              <%= link_to "About", new_user_session_path %>
+              <!--名前付きルート（後で作成）-->
+            </li>
+            <li>
+              <%= link_to "Sign up", new_user_registration_path %>
+            </li>
+            <li>
+              <%= link_to "Log in", new_user_session_path %>
+            </li>
+          <% end %>
+        </div>
+      </nav>
     </header>
+    
+    <main>
+      <h1>Top</h1>
+    </main>
+    
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
     <%= yield %>
   </body>
 </html>
