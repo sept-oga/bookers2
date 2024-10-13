@@ -1,11 +1,5 @@
 <h2>User info</h2>
-  <% @books.each do |book| %>
-    <div>
-      <%= image_tag book.user.get_image %>
-      <p>name：<%= book.user.name %></p>
-      <p>introduction：<%= book.user.introduction %></p>
-    </div>
-  <% end %>
+
 
 <h2>New Book</h2>
 <%= form_with model: Book.new do |f| %>
@@ -19,3 +13,7 @@
 <% end %>
 
 <h2>Books</h2>
+  <% @books.each do |book| %>
+    <p>Title：<%= book.title %></p>
+    <p>Opinion：<%= book.body %></p
+  <% end %>
