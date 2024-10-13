@@ -1,19 +1,47 @@
-<h2>User info</h2>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      
+      <h2>User info</h2>
+      <%= form_with model: @user do |f| %>
+        <%= image_tag @user.get_image %>
+        <table class="table">
+          <tbody>
+            <tr></tr>
+            <tr>
+              <th>name</th>
+              <th><%= @user.name %></th>
+            </tr>
+            <tr>
+              <th>introduction</th>
+              <th><%= @user.introduction %></th>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+      <div class="row justify-content-center">
+        <%= link_to "option", user_path(current_user) %>
+      </div>
+      
+      
+      <h2>New Book</h2>
+      <%= form_with model: Book.new do |f| %>
+        <p>Title</p>
+        <%= f.text_field :title %>
 
-
-<h2>New Book</h2>
-<%= form_with model: Book.new do |f| %>
-  <p>Title</p>
-  <%= f.text_field :title %>
-	
-  <p>Opinion</p>
-  <%= f.text_area :body %>
-	
-  <%= f.submit 'Create Book' %>
-<% end %>
-
-<h2>Books</h2>
-  <% @books.each do |book| %>
-    <p>Title：<%= book.title %></p>
-    <p>Opinion：<%= book.body %></p
-  <% end %>
+        <p>Opinion</p>
+        <%= f.text_area :body %>
+    
+        <%= f.submit 'Create Book' %>
+      <% end %>
+      
+      
+      <h2>Books</h2>
+      <% @books.each do |book| %>
+        <p>Title：<%= book.title %></p>
+        <p>Opinion：<%= book.body %></p>
+      <% end %>
+      
+    </div>
+  </div>
+</div>

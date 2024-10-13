@@ -12,7 +12,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-    #@book.user_id = current_user.id
+    @user = current_user
   end
 
   def show
