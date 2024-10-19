@@ -12,7 +12,10 @@
           <tbody>
             <tr>
               <td>
-                <%= image_tag @user.get_profile_image %><br>
+                <!--画像にリンクを貼る-->
+                <%= link_to user_path(@user) do %>
+                  <%= image_tag @user.get_profile_image %>
+                <% end %><br>
                 <%= link_to @user.name, user_path(@user) %>
               </td>
               <td><%= link_to @book.title, book_path(@book) %></td>
